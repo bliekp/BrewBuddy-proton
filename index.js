@@ -1,6 +1,6 @@
 import React, { Component } from 'react'; // import from react
 
-import { render, Window, App, Group, Box, Button, TextInput, Text, Menu, MenuItem, Grid, Tab } from 'proton-native'; // import the proton-native components
+import { render, Window, App, Group, Box, Button, TextInput, Text, Menu, MenuItem, Grid, Tab, Spinbox } from 'proton-native'; // import the proton-native components
 
 class BrewBuddy extends Component {
   render() { // all Components must have a render method
@@ -33,7 +33,7 @@ class BrewBuddy extends Component {
                 <Button>Copy to HTML</Button>
                 <Button>Print checklist</Button>
               </Box>
-              <Grid padded={true} stretchy={false}> // three-column grid is the main functionality
+              <Grid padded={false} stretchy={false}> // three-column grid is the main functionality
                 <Box row={0} column={0} stretchy={false} padded={true}> // left column with the list of brews and recipes in two tabs
                   <Tab>
                     <TextInput label="Brews" />
@@ -42,11 +42,12 @@ class BrewBuddy extends Component {
                 </Box>
                 <Box row={0} column={1} stretchy={true} padded={true}>  // middle column with the actual recipe and brew visible
                   <TextInput >
-                    Middle pane 
+                    Middle pane
                   </TextInput>
                 </Box>
                 <Box row={0} column={2} stretchy={false} padded={true}>
-                  <TextInput>Plato / SG</TextInput>
+                  <Spinbox label="SG" value={1}/>
+                  <Spinbox label="Plato" value={1} />
                 </Box>
               </Grid>
             </Box>
